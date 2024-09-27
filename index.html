@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладки</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>вкладочки</h2>
+
+<div class="tabs">
+    <div class="tab active" onclick="openTab(event, 'tab1')">Вкладка 1</div>
+    <div class="tab" onclick="openTab(event, 'tab2')">Вкладка 2</div>
+    <div class="tab" onclick="openTab(event, 'tab3')">Вкладка 3</div>
+</div>
+
+<div id="tab1" class="content active">
+    <h3>Содержимое Вкладки 1</h3>
+    <p>Это содержимое первой вкладки.</p>
+</div>
+<div id="tab2" class="content">
+    <h3>Содержимое Вкладки 2</h3>
+    <p>Это содержимое второй вкладки.</p>
+</div>
+<div id="tab3" class="content">
+    <h3>Содержимое Вкладки 3</h3>
+    <p>Это содержимое третьей вкладки.</p>
+</div>
+
+<script>
+    function openTab(event, tabName) {
+
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
